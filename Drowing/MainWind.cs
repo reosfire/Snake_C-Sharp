@@ -55,7 +55,7 @@ namespace Drowing
                 StartGameBtt.Text = "START";
             }
 
-            timer.Interval = 200;
+            timer.Interval = 150;
 
             if (!Started)
             {
