@@ -1,0 +1,12 @@
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\bin\Release\Drowing.exe.config
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\bin\Release\Drowing.exe
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\bin\Release\Drowing.pdb
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.csprojAssemblyReference.cache
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.mainWind.resources
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.Properties.Resources.resources
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.RePainted.resources
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.settings.resources
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.csproj.GenerateResource.cache
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.csproj.CoreCompileInputs.cache
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.exe
+C:\created_by_myself\coding\VS_projects\Drowing\Drowing\obj\Release\Drowing.pdb
