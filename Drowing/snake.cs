@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace Drowing
 {
     enum Direction { up, right, down, left }
-    
+
     class snake
     {
-        public bool IsDie { get; private set; } = false; 
+        public bool IsDie { get; private set; } = false;
         public int Count { get; private set; }
         public List<Gamepoint> Body { get; private set; } = new List<Gamepoint>();
         public Direction Direction { get; private set; }
@@ -28,6 +28,7 @@ namespace Drowing
                 Body.Add(gp);
             }
             SnakeAssOFA = body[body.Length - 1].Point;
+            Count = 2;
         }
 
         public void Move(Direction direction)
@@ -45,6 +46,17 @@ namespace Drowing
             SnakeHead = Body[0].Point;
             Direction = direction;
         }
+        public int GetIndex(Point P)
+        {
+            for (int i = 0; i < Body.Count; i++)
+            {
+                if (Body[i].Point == P)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         public bool invertedDirection(Direction d1, Direction d2)
         {
             if (d1 == Direction.up && d2 == Direction.down || d1 == Direction.down && d2 == Direction.up || d1 == Direction.left && d2 == Direction.right || d1 == Direction.right && d2 == Direction.left)
@@ -53,12 +65,13 @@ namespace Drowing
             }
             return false;
         }
-        public void AddOne (Gamepoint BodyElem)
+        public void AddOne(Gamepoint BodyElem)
         {
             Body.Add(BodyElem);
+            Count++;
         }
 
-        public Point nextFrameHeadPoint (Direction dir)
+        public Point nextFrameHeadPoint(Direction dir)
         {
             Point outP;
             if (invertedDirection(Direction, dir))

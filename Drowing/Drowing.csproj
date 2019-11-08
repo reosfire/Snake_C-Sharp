@@ -106,7 +106,8 @@
     <None Include="Resources\background.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exit btt.bmp" />
+    <None Include="Resources\apple.bmp" />
+    <Content Include="Resources\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

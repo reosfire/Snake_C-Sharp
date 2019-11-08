@@ -13,7 +13,7 @@ namespace Drowing
         public int X { get; private set; }
         public int Y { get; private set; }
 
-        private snake Snake;
+        public snake Snake;
         private Point PApple;
         private mainWind Wind;
         public int Score { get; private set; } = 0;

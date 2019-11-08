@@ -36,12 +36,12 @@ namespace Drowing
             }
             return false;
         }
-        public void PaintFrame(GameArr input)
+        public void PaintFrame(GameArr input, snake s)
         {
             Graphics g = Graphics.FromHwnd(Handle);
             Color AppleColor = Color.FromArgb(200, 20, 20);
-            Color SnakeColor = Color.FromArgb(20, 200, 20);
-            Color SnakeHeadColor = Color.FromArgb(20, 80, 20);
+            Color SnakeColor = Color.FromArgb(250, 250, 250);
+            Color SnakeHeadColor = Color.FromArgb(40, 40, 40);
 
             for (int x = 1; x < input.X - 1; x++)
             {
@@ -50,15 +50,14 @@ namespace Drowing
                     switch (input.GameState[x, y].Type)
                     {
                         case PointType.Apple:
-                            g.FillEllipse(new SolidBrush(AppleColor), (x - 1) * 40 + 2, (y - 1) * 40 + 2, 34, 34);
+                            g.DrawImage(Properties.Resources.apple, x * 40 - 34 / 2 - 20, y * 40 - 34 / 2 - 20, 34, 34);
                             break;
                         case PointType.Snake:
-                            g.FillRectangle(new SolidBrush(SnakeColor), (x - 1) * 40 + 5, (y - 1) * 40 + 5, 30, 30);
-                            g.DrawRectangle(new Pen(GetColor(x, y), 5), (x - 1) * 40  + 2, (y - 1) * 40 + 2, 35, 35);
+                            int cubeSize = 26;// = GetCubeSize(s.Count, s.GetIndex(new Point(x, y)))*4 + 2;
+                            paintRect(cubeSize, SnakeColor, x, y, g);
                             break;
                         case PointType.SnakeHead:
-                            g.FillRectangle(new SolidBrush(SnakeHeadColor), (x - 1) * 40 + 2, (y - 1) * 40 + 2, 36, 36 );
-                            g.DrawRectangle(new Pen(Color.FromArgb(10,10,100), 3), (x - 1) * 40 + 3, (y - 1) * 40 + 3, 35, 35);
+                            paintRect(30, SnakeHeadColor, x, y, g);
                             break;
                         case PointType.Empty:
                             g.FillRectangle(new SolidBrush(GetColor(x, y)), (x - 1) * 40, (y - 1) * 40, 40, 40);
@@ -66,6 +65,17 @@ namespace Drowing
                     }
                 }
             }
+        }
+        void paintRect(int Size, Color color, int x, int y, Graphics g)
+        {
+            g.FillRectangle(new SolidBrush(color), x * 40 - Size / 2 - 20, y * 40 - Size / 2 - 20, Size, Size);
+            g.DrawRectangle(new Pen(GetColor(x, y), 20 - Size / 2), x * 40 - Size / 2 - 20 + Size / 4 - 10, y * 40 - Size / 2 - 20 + Size / 4 - 10, 20 - Size / 2 + Size, 20 - Size / 2 + Size);
+        }
+        int GetCubeSize(int Count, int num)
+        {
+            float ret = 8f * num / Count;
+            int revert = 9 - Convert.ToInt32(ret);
+            return revert;
         }
         public Color GetColor(int x, int y)
         {

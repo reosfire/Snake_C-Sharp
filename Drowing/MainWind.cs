@@ -55,7 +55,7 @@ namespace Drowing
                 StartGameBtt.Text = "START";
             }
 
-            timer.Interval = 150;
+            timer.Interval = 200;
 
             if (!Started)
             {
@@ -81,7 +81,7 @@ namespace Drowing
             gameArr.EattenApple();
 
             scoreBox.Text = Convert.ToString(gameArr.Score);
-            r.PaintFrame(gameArr);
+            r.PaintFrame(gameArr, gameArr.Snake);
         }
 
         private void mainWind_KeyDown(object sender, KeyEventArgs e)
@@ -130,6 +130,11 @@ namespace Drowing
                 Moves.RemoveAt(Moves.Count - 1);
                 return retDir;
             }
+        }
+
+        private void hideBtt_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
